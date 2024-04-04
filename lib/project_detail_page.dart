@@ -13,7 +13,8 @@ class ProjectDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(project.name)),
+      appBar: AppBar(
+        title: Text(project.name)),
       backgroundColor: Colors.grey[300],
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(10.0),
@@ -156,3 +157,6 @@ class ProjectDetailPage extends StatelessWidget {
     );
   }
 }
+
+
+

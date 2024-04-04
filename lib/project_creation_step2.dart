@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:io';
 import 'package:image_picker/image_picker.dart';
 import 'project_data.dart';
-import 'project_creation_step2_2.dart'; // Make sure to import ProjectCreationStep2_2
+import 'project_creation_step4.dart'; // Make sure to import ProjectCreationStep4
 
 class ProjectCreationStep2 extends StatefulWidget {
   final Project project;
@@ -36,7 +36,7 @@ class _ProjectCreationStep2State extends State<ProjectCreationStep2> {
   void _navigateToImageProcessingStep() {
     if (_selectedImage != null) {
       Navigator.of(context).push(MaterialPageRoute(
-        builder: (context) => ProjectCreationStep2_2(
+        builder: (context) => ProjectCreationStep4(
           project: widget.project,
           imagePath: _selectedImage!.path, // 수정: imagePath 전달
           onComplete: () {

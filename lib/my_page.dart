@@ -9,7 +9,7 @@ import 'package:http/http.dart' as http;
 import 'project_data.dart';
 import 'project_creation_step1.dart';
 import 'project_creation_step2.dart';
-import 'project_creation_step2_2.dart';
+import 'project_creation_step4.dart';
 import 'project_detail_page.dart';
 
 class MyPage extends StatefulWidget {
@@ -52,15 +52,15 @@ class _MyPageState extends State<MyPage> {
       builder: (context) => ProjectCreationStep2(
         project: project,
         onNext: (Project updatedProject) {
-          _navigateToStep2_2(updatedProject);
+          _navigateToStep4(updatedProject);
         },
       ),
     ));
   }
 
-  void _navigateToStep2_2(Project project) {
+  void _navigateToStep4(Project project) {
     Navigator.of(context).push(MaterialPageRoute(
-      builder: (context) => ProjectCreationStep2_2(
+      builder: (context) => ProjectCreationStep4(
         project: project,
         imagePath: project.imagePath, // 수정: Project 객체에서 imagePath를 직접 사용
         onComplete: () {

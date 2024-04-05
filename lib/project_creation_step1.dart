@@ -24,7 +24,7 @@ class _ProjectCreationStep1State extends State<ProjectCreationStep1> {
     super.dispose();
   }
 
-  void _onNextPressed() {
+  void _navigateStep2() {
     // 프로젝트 이름이 입력되었는지 확인
     if (_nameController.text.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -77,7 +77,7 @@ class _ProjectCreationStep1State extends State<ProjectCreationStep1> {
               ),
 
               ElevatedButton(
-                onPressed: _onNextPressed,
+                onPressed: _navigateStep2,
                 child: Text('다음'),
               ),
             ],

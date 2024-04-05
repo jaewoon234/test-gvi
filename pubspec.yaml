@@ -41,6 +41,7 @@ dependencies:
   intl: ^0.19.0
   open_file: ^3.3.2
   pdf: ^3.10.8
+  image_painter: ^0.7.1
 
 dev_dependencies:
   flutter_test:

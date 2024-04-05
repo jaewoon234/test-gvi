@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:io';
 import 'package:image_picker/image_picker.dart';
 import 'project_data.dart';
-import 'project_creation_step4.dart'; // Make sure to import ProjectCreationStep4
+import 'project_creation_step3.dart'; // Step 3로 이동하기 위해 필요
 
 class ProjectCreationStep2 extends StatefulWidget {
   final Project project;
@@ -33,16 +33,14 @@ class _ProjectCreationStep2State extends State<ProjectCreationStep2> {
     }
   }
 
-  void _navigateToImageProcessingStep() {
+  void _navigateStep3() {
     if (_selectedImage != null) {
+      // Step 3로 이동하는 로직
       Navigator.of(context).push(MaterialPageRoute(
-        builder: (context) => ProjectCreationStep4(
+        builder: (context) => ProjectCreationStep3(
           project: widget.project,
           imagePath: _selectedImage!.path, // 수정: imagePath 전달
-          onComplete: () {
-            // 이미지 처리 완료 후의 로직
-            widget.onNext(widget.project);
-          },
+          onNext: widget.onNext, // onNext 함수를 ProjectCreationStep3에 전달
         ),
       ));
     }
@@ -63,8 +61,8 @@ class _ProjectCreationStep2State extends State<ProjectCreationStep2> {
             child: Text('Pick an Image from Gallery'),
           ),
           ElevatedButton(
-            onPressed: _navigateToImageProcessingStep,
-            child: Text('Process Image'),
+            onPressed: _navigateStep3,
+            child: Text('Next Step'), // 'Process Image' 대신 'Next Step'으로 변경
           ),
         ],
       ),

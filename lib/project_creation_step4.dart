@@ -42,7 +42,7 @@ class _ProjectCreationStep4State extends State<ProjectCreationStep4> {
       _isLoading = true;
     });
 
-    Uri uri = Uri.parse('http://192.168.2.53:8080/upload');
+    Uri uri = Uri.parse('http://192.168.219.43:8080/upload');
     var request = http.MultipartRequest('POST', uri)
       ..files.add(await http.MultipartFile.fromPath('image', imagePath));
 

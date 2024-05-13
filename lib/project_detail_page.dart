@@ -16,8 +16,8 @@ class ProjectDetailPage extends StatelessWidget {
 
   ProjectDetailPage({Key? key, required this.project}) : super(key: key);
 
-  Future<void> _generatePDF(BuildContext context) async {
-    final pdf = pdfLib.Document();
+  Future<void> _generatePDF(BuildContext context) async { //PDF 보고서 생성
+    final pdf = pdfLib.Document(); //새 pdf 문서 생성
 
     final font = await rootBundle.load("assets/fonts/Roboto-Black.ttf");
     final ttf = pdfLib.Font.ttf(font);
@@ -50,12 +50,12 @@ class ProjectDetailPage extends StatelessWidget {
                 style: pdfLib.TextStyle(fontSize: 18, font: ttf),
               ),
               // Add original image
-              if (project.imagePath != null)
+              if (project.imagePath != null) //원본 이미 추가
                 pdfLib.Image(pdfLib.MemoryImage(
                   File(project.imagePath!).readAsBytesSync(),
                 )),
               pdfLib.SizedBox(height: 10),
-              if (project.processedImageUrl != null)
+              if (project.processedImageUrl != null) //프로세싱된 이미지 추가
                 pdfLib.Image(pdfLib.MemoryImage(
                   File(project.processedImageUrl!).readAsBytesSync(),
                 )),
@@ -71,6 +71,7 @@ class ProjectDetailPage extends StatelessWidget {
     final File file = File(path);
     await file.writeAsBytes(await pdf.save());
 
+
     scaffoldMessengerKey.currentState!.showSnackBar(
       SnackBar(
         content: Text('PDF saved at: $path'),
@@ -79,7 +80,7 @@ class ProjectDetailPage extends StatelessWidget {
           onPressed: () => _openPDF(context, path),
         ),
       ),
-    );
+    ); //pdf 저장 및 열기위한 버튼
   }
 
 
@@ -88,7 +89,7 @@ class ProjectDetailPage extends StatelessWidget {
       MaterialPageRoute(
         builder: (context) => PDFViewerPage(filePath: filePath),
       ),
-    );
+    ); //pdf 열기 함수
   }
 
   @override
